@@ -14,7 +14,7 @@ import org.bukkit.block.Chest;
 import org.bukkit.block.ShulkerBox;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -99,33 +99,21 @@ public class ESChest extends JavaPlugin implements Listener {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (args.length != 0) {
-			if (args[0].equalsIgnoreCase("on")) {
-				getServer().getPluginManager().registerEvents(this, this);
-				sender.sendMessage("§aプラグインが有効になりました");
-				return true;
-			} else if (args[0].equalsIgnoreCase("off")) {
-				HandlerList.unregisterAll();
-				sender.sendMessage("§aプラグインが無効になりました");
-				return true;
-			} else if (args[0].equalsIgnoreCase("info")) {
-
-				sender.sendMessage("開発者：　" + ConfigSetting());
-				return true;
-
+			if (sender instanceof Player) {
+				if (args[0].equalsIgnoreCase("on")) {
+					getServer().getPluginManager().registerEvents(this, this);
+					sender.sendMessage("§aプラグインが有効になりました");
+					return true;
+				} else if (args[0].equalsIgnoreCase("off")) {
+					HandlerList.unregisterAll();
+					sender.sendMessage("§aプラグインが無効になりました");
+					return true;
+				}
 			}
 		}
 
-		sender.sendMessage("§c使い方： /morechest on または off");
+		sender.sendMessage("§c使い方： /eschest on または off");
 		return false;
-	}
-
-	public String ConfigSetting() {
-		saveDefaultConfig();
-		FileConfiguration config = getConfig();
-
-		String info = config.getString("auther");
-
-		return info;
 	}
 
 }
