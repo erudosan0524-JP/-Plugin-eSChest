@@ -1,6 +1,7 @@
 name: eSChest
 version: 1.1.2
 main: eSChest.plugin.ESChest
+website: https://github.com/erudosan0524-JP
 author: 'Ld0'
 commands:
    eSChest:
