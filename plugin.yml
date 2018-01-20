@@ -1,0 +1,8 @@
+name: eSChest
+version: 1.1.1
+main: eSChest.plugin.ESChest
+author: 'Ld0'
+commands:
+   eSChest:
+    description: Toggle on/off
+    default: true
