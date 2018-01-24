@@ -102,17 +102,17 @@ public class ESChest extends JavaPlugin implements Listener {
 			if (sender instanceof Player) {
 				if (args[0].equalsIgnoreCase("on")) {
 					getServer().getPluginManager().registerEvents(this, this);
-					sender.sendMessage("§aプラグインが有効になりました");
+					sender.sendMessage("§a[eChest]プラグインが有効になりました");
 					return true;
 				} else if (args[0].equalsIgnoreCase("off")) {
 					HandlerList.unregisterAll();
-					sender.sendMessage("§aプラグインが無効になりました");
+					sender.sendMessage("§a[eChest]プラグインが無効になりました");
 					return true;
 				}
 			}
 		}
 
-		sender.sendMessage("§c使い方： /eschest on または off");
+		sender.sendMessage("§c[eChest]使い方： /eschest on または off");
 		return false;
 	}
 
